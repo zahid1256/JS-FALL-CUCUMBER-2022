@@ -9,6 +9,12 @@ class HomePage {
     goingToLocator = '//button[@aria-label="Going to"]';
     goingToTypeLocator = '#destination_form_field';
     autoSuggestionsLocator = '//div[@class="truncate"]//strong';
+    languageLocator = '//div[text()="English"]'
+    languageDropDownLocator = '#language-selector'
+    spanishLocator = '//option[text()="Español (Estados Unidos)"]'
+    englishLocator = '//option[text()="English (United States)"]'
+    saveLocator = '//button[text()="Save]'
+
 
     // Calendar
     calendarOpenLocator = '#date_form_field-btn';
@@ -63,6 +69,31 @@ class HomePage {
         await this.commands.clickWebElement(this.prevCalendarButtonLocator);
     }
 
+    async clickOnLanguageSelector() {
+        await this.commands.clickWebElement(this.languageLocator)
+    }
+    async clickOnLanguageDropDown() {
+        await this.commands.clickWebElement(this.languageDropDownLocator)
+    }
+    async clickOnSpanish() {
+        await this.commands.clickWebElement(this.spanishLocator)
+    }
+    async clickOnEnglish() {
+        await this.commands.clickWebElement(this.englishLocator)
+    }
+    async clickOnSave() {
+        await this.commands.clickWebElement(this.saveLocator)
+    }
+    async isLanguageAsSpanishEnabled() {
+        return await this.commands.isWebElementEnabled(this.spanishLocator)
+    }
+    async isLanguageAsEnglishEnabled() {
+        return await this.commands.isWebElementEnabled(this.englishLocator)
+    }
+
+    
+
+
     // 'May 2023'
     async goToMonth(monthYear) {
         /**
@@ -82,6 +113,7 @@ class HomePage {
             await browser.pause(1000);
             count++;
         }
+    
     }
 
 }
