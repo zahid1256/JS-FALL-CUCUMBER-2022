@@ -7,10 +7,7 @@ const Dates = require('../../Utils/Dates');
 const loginPage = new LoginPage();
 const signUpPage = new SignUpPage();
 
-Given(/^I am on facebook$/, async function () {
-    await browser.url('/');
-    await browser.pause(5000)
-})
+
 
 When(/^I click on Create New Account$/, async function () {
     await loginPage.clickCreateNewAccountButton();
