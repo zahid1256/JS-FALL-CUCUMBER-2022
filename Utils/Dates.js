@@ -1,13 +1,14 @@
 const moment = require("moment/moment");
+const { numberOfWindowsToBe } = require("wdio-wait-for");
 
 class Dates {
 
-    static getCurrentDate() {
+    async getCurrentDate() {
         const now = moment();
         return now.format('D');
     }
 
-    static getCurrentMonthNameInShort() {
+    async getCurrentMonthNameInShort() {
         const now = moment();
         return now.format('MMM');
     }
@@ -15,6 +16,11 @@ class Dates {
     static getCurrentYearInYYYY() {
         const now = moment();
         return now.format('YYYY');
+    }
+
+    async getCurrentMonthAndYear() {
+        const now = moment() 
+        return now.format('MMMM YYYY')
     }
 
 

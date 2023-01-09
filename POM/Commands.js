@@ -82,6 +82,12 @@ class Commands {
             */
             return await $(locator).isEnabled();
         }
+
+
+
+        async isWebElementDisplayed(locator) {
+            return await $(locator).isDisplayed()
+        }
     
         /**
          * Generic function to get Text of a WebElement
@@ -179,6 +185,18 @@ class Commands {
             }
         }
     
+        async scrollIntoView(locator){
+            await $(locator).scrollIntoView()
+        }
+
+        async multiClickWebEl(locator, numberOfClicks) {
+            const element = await this.findWebElement(locator)
+            for (let counter = 1; counter <= numberOfClicks; counter++) {
+                await element.click()
+                console.log(`\n\nclick->${counter} numberOfClicks: ${numberOfClicks}\n\n`);
+            }
+        }
+        
         /**
          * Generic function to select date from calendar using getAttribute
          * name: selectDateInCalendar
